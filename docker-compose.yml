@@ -1,0 +1,23 @@
+# Define version of docker compose
+version: "3.9"
+
+# Define services that docker-compose will up
+services:
+  # Declaring web service
+  web:
+    # Put local of folder of application build
+    build: .
+    
+    # Define the ports of the application and of the
+    # docker image instance
+    ports:
+      - "8080:8080"
+    
+    # Define volumes that docker will watch, allowing to
+    # "modify the code on the fly"
+    volumes:
+      - .:/code
+    
+    # Define application env vars
+    environment:
+      NODE_ENV: development
